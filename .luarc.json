@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+  "workspace": {
+    "ignoreDir": [".vscode"],
+    "library": ["./deps"]
+  },
+  "runtime": {
+    "version": "Lua 5.1",
+    "path": ["./?.lua", "./?/init.lua"],
+    "pathStrict": true
+  }
+}
