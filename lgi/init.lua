@@ -1,4 +1,4 @@
----@meta
+---@meta lgi
 
 ---Note that none of the type definitions in this file are complete.
 ---If a field is missing, add it and report it.
@@ -38,5 +38,4 @@
 ---@field require fun(mod: string): unknown
 
 local lgi = require("lgi") ---@type lgi
-
 return lgi
