@@ -13,7 +13,7 @@
 ---@field get_name fun(self: GFileInfo): string
 ---Gets the file’s size (in bytes)
 ---It is an error to call this if the GFileInfo does not contain G_FILE_ATTRIBUTE_STANDARD_SIZE.
----@field get_size fun(self: GFileInfo): number
+---@field get_size fun(self: GFileInfo): integer
 ---It is an error to call this if the GFileInfo does not contain G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME.
 ---@field get_display_name fun(self: GFileInfo): string
 ---@field get_attribute_string fun(self: GFileInfo, attribute: string): string?

@@ -4,8 +4,8 @@
 ---@class GCancellable
 ---@field cancel fun(self: GCancellable)
 ---callback is called at most once, either directly at the time of the connect if cancellable is already cancelled, or when cancellable is cancelled in some thread.
----@field connect fun(self: GCancellable, callback: fun()): handler_id: number|0
----@field disconnect fun(self: GCancellable, handler_id: number)
+---@field connect fun(self: GCancellable, callback: fun()): handler_id: integer|0
+---@field disconnect fun(self: GCancellable, handler_id: integer)
 ---@field is_cancelled fun(self: GCancellable): boolean
 ---Resets cancellable to its uncancelled state.
 ---Note: BAD IDEA™. Just create a new cancellable
