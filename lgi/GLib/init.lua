@@ -1,5 +1,4 @@
 ---@meta
----@alias GSourceFunc fun(): boolean
 
 ---@alias GUserDirectory
 --- | "DIRECTORY_DESKTOP" The user’s Desktop directory.
@@ -117,3 +116,4 @@
 ---Symlinks are not followed. No IO is done.
 ---See https://docs.gtk.org/glib/func.canonicalize_filename.html
 ---@field canonicalize_filename fun(filename: string, relative_to: string?): string
+---@field Source GSourceStatic
