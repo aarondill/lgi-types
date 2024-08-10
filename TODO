@@ -3,3 +3,18 @@
 error("You can't require the todo file!")
 
 ---TODO: Types for https://docs.gtk.org/gio/class.DBusConnection.html
+
+---@TODO: Move to actual definitions
+---EXAMPLE:
+---FROM:
+---@class DummyClass
+---@field do_something fun(self: DummyClass, arg: string): string
+---@field do_something fun(self: DummyClass, arg: string): nil
+---TO:
+---@diagnostic disable: unused-local, missing-return
+---@class DummyClass
+local DummyClass = {}
+---@param arg string
+---@return string
+---@overload fun(self: DummyClass, arg: string): nil
+function DummyClass:do_something(arg) end
