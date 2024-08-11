@@ -1,5 +1,5 @@
 ---@class GSubprocessLauncherStatic
----@field new fun(flags: GSubprocessFlags): GSubprocessLauncher
+---@field new fun(flags: Flags<GSubprocessFlags>): GSubprocessLauncher
 
 ---@class GSubprocessLauncher
 ---@field getenv fun(self: GSubprocessLauncher, variable: string): string?
@@ -10,7 +10,7 @@
 ---process ‘environ’ and using the functions g_environ_setenv(),
 ---g_environ_unsetenv(), etc.
 ---@field set_environ fun(self: GSubprocessLauncher, env: string[]|nil)
----@field set_flags fun(self: GSubprocessLauncher, flags: GSubprocessFlags)
+---@field set_flags fun(self: GSubprocessLauncher, flags: Flags<GSubprocessFlags>)
 -- Sets the file path to use as the stderr for spawned processes. If path is
 -- NULL then any previously given path is unset. The file will be created or
 -- truncated when the process is spawned, as would be the case if using ‘2>’ at
