@@ -54,6 +54,10 @@
 ---@field query_file_type fun(self: GFile, flags: Flags<GFileQueryInfoFlags>, cancellable?: GCancellable): GFileType
 ---@field query_info fun(self: GFile, attributes: string, flags: Flags<GFileQueryInfoFlags>, cancellable?: GCancellable): GFileInfo?, GError?
 ---@field get_parent fun(self: GFile): GFile?
+---Note that name *must* not be an absolute path. (see GLib.path_is_absolute())
+---@field get_child fun(self: GFile, name: string): GFile?
+---If the relative_path is an absolute path name, the resolution is done absolutely (without taking file path as base).
+---@field resolve_relative_path fun(self: GFile, relative_path: string): GFile?
 ---@field get_path fun(self: GFile): string?
 ---@field get_basename fun(self: GFile): string?
 ---@field load_contents_async fun(self: GFile, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
