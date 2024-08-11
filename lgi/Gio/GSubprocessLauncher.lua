@@ -1,0 +1,51 @@
+---@class GSubprocessLauncherStatic
+---@field new fun(flags: GSubprocessFlags): GSubprocessLauncher
+
+---@class GSubprocessLauncher
+---@field getenv fun(self: GSubprocessLauncher, variable: string): string?
+---@field set_cwd fun(self: GSubprocessLauncher, cwd: string)
+---Pass an empty array to set an empty environment. Pass NULL to inherit the
+---parent process’ environment
+---Typically you will build this variable by using g_listenv() to copy the
+---process ‘environ’ and using the functions g_environ_setenv(),
+---g_environ_unsetenv(), etc.
+---@field set_environ fun(self: GSubprocessLauncher, env: string[]|nil)
+---@field set_flags fun(self: GSubprocessLauncher, flags: GSubprocessFlags)
+-- Sets the file path to use as the stderr for spawned processes. If path is
+-- NULL then any previously given path is unset. The file will be created or
+-- truncated when the process is spawned, as would be the case if using ‘2>’ at
+-- the shell. If you want to send both stdout and stderr to the same file then
+-- use G_SUBPROCESS_FLAGS_STDERR_MERGE. You may not set a stderr file path if a
+-- stderr fd is already set or if the launcher flags contain any flags
+-- directing stderr elsewhere. This feature is only available on UNIX.
+---@field set_stderr_file_path? fun(self: GSubprocessLauncher, path: string)
+---See g_subprocess_launcher_set_stderr_file_path() for details.
+---@field set_stdin_file_path? fun(self: GSubprocessLauncher, path: string)
+---See g_subprocess_launcher_set_stderr_file_path() for details.
+---@field tringset_stdout_file_path? fun(self: GSubprocessLauncher, path: string)
+---@field setenv fun(self: GSubprocessLauncher, variable: string, value: string, overwrite: boolean)
+---@field spawnv fun(self: GSubprocessLauncher, argv: string[]): GSubprocess?, GError?
+---Transfer an arbitrary file descriptor from parent process to the child. This
+---function takes ownership of the source_fd; it will be closed in the parent
+---when self is freed. By default, all file descriptors from the parent will be
+---closed. This function allows you to create (for example) a custom pipe() or
+---socketpair() before launching the process, and choose the target descriptor
+---in the child.
+---@field take_fd fun(self: GSubprocessLauncher, source_fd: integer, target_fd: integer)
+---If fd is -1 then any previously given fd is unset. Note that the default
+---behaviour is to pass stderr through to the stderr of
+-- the parent process. The passed fd belongs to the GSubprocessLauncher. It
+-- will be automatically closed when the launcher is finalized. The file
+-- descriptor will also be closed on the child side when executing the spawned
+-- process. This feature is only available on UNIX.
+---@field take_stderr_fd? fun(self: GSubprocessLauncher, fd: integer)
+---Note that if your intention is to have the stdin of the calling process
+---inherited by the child then G_SUBPROCESS_FLAGS_STDIN_INHERIT is a better way
+---to go about doing that. The passed fd is noted but will not be touched in
+---the current process. It is therefore necessary that it be kept open by the
+---caller until the subprocess is spawned. The file descriptor will also not be
+---explicitly closed on the child side, so it must be marked O_CLOEXEC if
+---that’s what you want.
+---@field take_stdin_fd? fun(self: GSubprocessLauncher, fd: integer)
+---@field take_stdout_fd? fun(self: GSubprocessLauncher, fd: integer)
+---@field unsetenv fun(self: GSubprocessLauncher, variable: string)

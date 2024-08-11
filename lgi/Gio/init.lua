@@ -17,6 +17,7 @@
 ---@field IOErrorEnum EnumDefinition<string>
 ---@field Subprocess GSubprocessStatic
 ---@field SubprocessFlags FlagsDefinition<GSubprocessFlags>
+---@field SubprocessLauncher GSubprocessLauncherStatic
 ---@field OutputStreamSpliceFlags FlagsDefinition<GOutputStreamSpliceFlags>
 ---@field UnixInputStream GUnixInputStreamStatic
 ---@field Cancellable GCancellableStatic
