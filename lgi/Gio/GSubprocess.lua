@@ -48,7 +48,7 @@
 ---@field get_stdin_pipe fun(self: GSubprocess): GOutputStream?
 ---@field get_stdout_pipe fun(self: GSubprocess): GInputStream?
 ---It is an error to call this function before g_subprocess_wait() has returned.
----@field get_successful fun(self: GSubprocess): integer
+---@field get_successful fun(self: GSubprocess): boolean
 ---It is an error to call this function before g_subprocess_wait() and unless g_subprocess_get_if_signaled() returned TRUE.
 ---@field get_term_sig fun(self: GSubprocess): integer
 -- Sends the UNIX signal signal_num to the subprocess, if it is still running. This API is not available on Windows.
