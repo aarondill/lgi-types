@@ -1,4 +1,17 @@
 ---@meta
+---@alias G_OS_INFO_KEY
+--- |"NAME" The name of the OS.
+--- |"PRETTY_NAME" The human-readable name of the OS.
+--- |"VERSION" The version of the OS.
+--- |"VERSION_CODENAME" The version codename of the OS.
+--- |"VERSION_ID" The version ID of the OS.
+--- |"ID" The ID of the OS.
+--- |"HOME_URL" The URL of the OS’s home page.
+--- |"DOCUMENTATION_URL" The URL of the OS’s documentation.
+--- |"SUPPORT_URL" The URL of the OS’s support page.
+--- |"BUG_REPORT_URL" The URL of the OS’s bug reporting page.
+--- |"PRIVACY_POLICY_URL" The URL of the OS’s privacy policy page.
+--- | string Any other key.
 
 ---@alias GUserDirectory
 --- | "DIRECTORY_DESKTOP" The user’s Desktop directory.
@@ -117,3 +130,4 @@
 ---See https://docs.gtk.org/glib/func.canonicalize_filename.html
 ---@field canonicalize_filename fun(filename: string, relative_to: string?): string
 ---@field Source GSourceStatic
+---@field get_os_info fun(key: G_OS_INFO_KEY): string?
