@@ -22,7 +22,7 @@
 ---See g_subprocess_launcher_set_stderr_file_path() for details.
 ---@field set_stdin_file_path? fun(self: GSubprocessLauncher, path: string)
 ---See g_subprocess_launcher_set_stderr_file_path() for details.
----@field tringset_stdout_file_path? fun(self: GSubprocessLauncher, path: string)
+---@field set_stdout_file_path? fun(self: GSubprocessLauncher, path: string)
 ---@field setenv fun(self: GSubprocessLauncher, variable: string, value: string, overwrite: boolean)
 ---@field spawnv fun(self: GSubprocessLauncher, argv: string[]): GSubprocess?, GError?
 ---Transfer an arbitrary file descriptor from parent process to the child. This
