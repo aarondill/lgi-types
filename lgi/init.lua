@@ -33,6 +33,12 @@
 ---@class lgi
 ---@field GLib GLib
 ---@field Gio Gio
+---@field cairo cairo
+---@field Pango Pango
+---@field GObject GObject
+---@field Gtk Gtk
+---@field Gdk Gdk
+---@field GdkPixbuf GdkPixbuf
 ---Use direct access instead. It has better types.
 ---@field require fun(mod: string): unknown
 
