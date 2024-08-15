@@ -3,6 +3,12 @@
 ---|"CLOSE_SOURCE" Close the source stream after splicing.
 ---|"CLOSE_TARGET" Close the target stream after splicing.
 
+---@class GPollableOutputStream: GOutputStream
+---@field can_poll fun(self: GPollableOutputStream): boolean
+---@field create_source fun(self: GPollableOutputStream, cancellable?: GCancellable): GSource
+---@field is_writable fun(self: GPollableOutputStream): boolean
+---@field write_nonblocking fun(self: GPollableOutputStream, buffer: string, count: integer, cancellable?: GCancellable): size: integer, GError?
+
 ---@class GOutputStream
 ---@field close fun(self: GOutputStream): boolean, GError?
 ---@field close_async fun(self: GOutputStream, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GOutputStream>)
@@ -19,4 +25,11 @@
 ---@field write_bytes_finish fun(self: GOutputStream, task: userdata): written: integer?, GError?
 ---@field write_finish fun(self: GOutputStream, task: userdata): written: integer?, GError?
 
----@class GFileOutputStream: GOutputStream
+---@class GFileOutputStream: GOutputStream, GSeekable
+
+---@class GUnixOutputStreamStatic
+---@field new fun(fd: integer, close_fd: boolean): GFileOutputStream
+
+---@class GUnixOutputStream: GOutputStream, GFileDescriptorBased, GPollableOutputStream
+---@field get_close_fd fun(self: GUnixOutputStream): boolean
+---@field set_close_fd fun(self: GUnixOutputStream, close_fd: boolean)
