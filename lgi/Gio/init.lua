@@ -27,8 +27,8 @@
 ---@field FileCopyFlags FlagsDefinition<GFileCopyFlags>
 ---@field FileCreateFlags FlagsDefinition<GFileCreateFlags>
 ---@field FileInfo GFileInfoStatic
----@field FileMonitorFlags FlagsDefinition<GFileMonitorFlags>
 ---@field FileMonitorEvent EnumDefinition<GFileMonitorEvent>
+---@field FileMonitorFlags FlagsDefinition<GFileMonitorFlags>
 ---@field FileQueryInfoFlags FlagsDefinition<GFileQueryInfoFlags>
 ---@field FileType EnumDefinition<GFileType>
 ---@field IOErrorEnum EnumDefinition<string>
@@ -38,6 +38,7 @@
 ---@field SubprocessFlags FlagsDefinition<GSubprocessFlags>
 ---@field SubprocessLauncher GSubprocessLauncherStatic
 ---@field UnixInputStream GUnixInputStreamStatic
+---@field UnixOutputStream GUnixOutputStreamStatic
 ---@field bus_get fun(bus_type: Enum<GBusType>, cancellable?: GCancellable, callback: GAsyncReadyCallback<GDBusConnection>)
 ---@field bus_get_finish fun(res: GAsyncResult): GDBusConnection
 ---@field bus_get_sync fun(bus_type: Enum<GBusType>, cancellable?: GCancellable): GDBusConnection
