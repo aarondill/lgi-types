@@ -57,7 +57,7 @@
 
 ---@class GDataInputStream: GBufferedInputStream, GSeekable
 ---@field read_line fun(self: GDataInputStream, cancellable?: GCancellable): string?, integer|GError?
----@field read_line_async fun(self: GDataInputStream, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GInputStream>)
+---@field read_line_async fun(self: GDataInputStream, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GDataInputStream>)
 ---@field read_line_finish fun(self: GInputStream, task: GAsyncResult): line: string?, len: integer|GError?
 
 ---@class GUnixInputStreamStatic
