@@ -84,6 +84,9 @@
 ---@field open_readwrite fun(self: GFile, cancellable?: GCancellable): GFileIOStream?, GError?
 ---@field open_readwrite_async fun(self: GFile, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
 ---@field open_readwrite_finish fun(self: GFile, result: GAsyncResult): GFileIOStream?, GError?
+---@field monitor fun(self: GFile, flags: Flags<GFileMonitorFlags>, cancellable?: GCancellable): GFileMonitor?, GError?
+---@field monitor_dir fun(self: GFile, flags: Flags<GFileMonitorFlags>, cancellable?: GCancellable): GFileMonitor?, GError?
+---@field monitor_file fun(self: GFile, flags: Flags<GFileMonitorFlags>, cancellable?: GCancellable): GFileMonitor?, GError?
 
 ---@class GFileIOStream TODO:
 

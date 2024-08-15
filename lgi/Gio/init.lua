@@ -27,6 +27,8 @@
 ---@field FileCopyFlags FlagsDefinition<GFileCopyFlags>
 ---@field FileCreateFlags FlagsDefinition<GFileCreateFlags>
 ---@field FileInfo GFileInfoStatic
+---@field FileMonitorFlags FlagsDefinition<GFileMonitorFlags>
+---@field FileMonitorEvent EnumDefinition<GFileMonitorEvent>
 ---@field FileQueryInfoFlags FlagsDefinition<GFileQueryInfoFlags>
 ---@field FileType EnumDefinition<GFileType>
 ---@field IOErrorEnum EnumDefinition<string>
