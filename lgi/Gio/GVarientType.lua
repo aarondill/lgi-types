@@ -1,0 +1,3 @@
+---@meta
+---@class GVarientTypeStatic TODO: missing constructors
+---@class GVarientType TODO: missing fields
