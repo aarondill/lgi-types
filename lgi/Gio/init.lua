@@ -12,6 +12,9 @@
 ---@field DBusCallFlags FlagsDefinition<GDBusCallFlags>
 ---@field DBusConnectionFlags FlagsDefinition<GDBusConnectionFlags>
 ---@field DBusConnection GDBusConnectionStatic
+---@field DBusMessageFlags FlagsDefinition<GDBusMessageFlags>
+---@field DBusMessage GDBusMessageStatic
+---@field DBusSendMessageFlags FlagsDefinition<GDBusSendMessageFlags>
 ---@field DBusSignalFlags FlagsDefinition<GDBusSignalFlags>
 ---@field FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME "standard::display-name"
 ---@field FILE_ATTRIBUTE_STANDARD_NAME "standard::name"

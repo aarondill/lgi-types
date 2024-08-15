@@ -24,6 +24,9 @@
 ---| 'NO_MATCH_RULE' Don't match the rule for the given member.
 ---| 'MATCH_ARG0_NAMESPACE' Match the rule for the given member, but only if the argument 0 is a namespace.
 ---| 'MATCH_ARG0_PATH' Match the rule for the given member, but only if the argument 0 is a path.
+---@alias GDBusSendMessageFlags
+---| "NONE" No flags
+---| 'PRESERVE_SERIAL' Preserve the serial of the message.
 
 ---@alias GDBusSignalCallback fun(self: GDBusConnection, sender?: string, object_path: string, interface_name: string, signal_name: string, parameters: GVariant)
 
@@ -55,3 +58,7 @@
 ---@field close_finish fun(self: GDBusConnection, res: GAsyncResult): boolean, GError?
 ---@field signal_subscribe fun(self: GDBusConnection, sender?: string, interface_name?: string, member?: string, object_path?: string, arg0?: string, flags: Flags<GDBusSignalFlags>, callback: GDBusSignalCallback): id: integer
 ---@field signal_unsubscribe fun(self: GDBusConnection, id: integer)
+---@field send_message_with_reply_sync fun(self: GDBusConnection, message: GDBusMessage, flags: Flags<GDBusSendMessageFlags>, timeout_msec: integer, cancellable?: GCancellable): GDBusMessage?, GError?
+---@field send_message_with_reply fun(self: GDBusConnection, message: GDBusMessage, flags: Flags<GDBusSendMessageFlags>, timeout_msec: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GDBusConnection>)
+---@field send_message_with_reply_finish fun(self: GDBusConnection, res: GAsyncResult): GDBusMessage?, GError?
+---@field send_message fun(self: GDBusConnection, message: GDBusMessage, flags: Flags<GDBusSendMessageFlags>, cancellable?: GCancellable): boolean, GError?
