@@ -4,23 +4,20 @@
 ---@alias GFileAttributeType "INVALID"| "STRING"| "BYTE_STRING"| "BOOLEAN"| "UINT32"| "INT32"| "UINT64"| "INT64"| "OBJECT"| "STRINGV"
 ---@alias GFileType "UNKNOWN"|"REGULAR"|"DIRECTORY"|"SYMBOLIC_LINK"|"SPECIAL"|"SHORTCUT"|"MOUNTABLE"
 ---@alias GFileQueryInfoFlags "NOFOLLOW_SYMLINKS"|"NONE" This needs to be NOFOLLOW_SYMLINKS to get symlink type information
----@alias GFileCreateFlags "NONE" No flags set.
+---@alias GFileCreateFlags
+---|"NONE" No flags set.
 ---|"PRIVATE" Create a file that can only be accessed by the current user.
 ---|"REPLACE_DESTINATION" Replace the destination as if it didn’t exist before.
----Don’t try to keep any old permissions, replace instead of following links.
----This is generally useful if you’re doing a “copy over” rather than a “save
----new version of” replace operation. You can think of it as “unlink
----destination” before writing to it, although the implementation may not be
----exactly like that. This flag can only be used with g_file_replace() and its
----variants, including g_file_replace_contents(). Since 2.20
----@alias GFileCopyFlags "NONE" No flags set.
----|"OVERWRITE" Overwrite any existing file.
+
+---@alias GFileCopyFlags
+---|"ALL_METADATA" Copy all metadata information.
 ---|"BACKUP" Make a backup of any existing file.
 ---|"NOFOLLOW_SYMLINKS" Don’t follow symbolic links.
----|"ALL_METADATA" Copy all metadata information.
+---|"NONE" No flags set.
 ---|"NO_FALLBACK_FOR_MOVE" Don’t use copy and delete fallback if native move not supported
----|"TARGET_DEFAULT_PERMS" Use the default permissions for the target.
+---|"OVERWRITE" Overwrite any existing file.
 ---|"TARGET_DEFAULT_MODIFIED_TIME" Use default modification timestamps instead of copying them from the source file. Since 2.80
+---|"TARGET_DEFAULT_PERMS" Use the default permissions for the target.
 
 ---@alias GFileProgressCallback fun(current_num_bytes: integer, total_num_bytes: integer)
 
@@ -38,49 +35,49 @@
 ---@field build_attribute_list_for_copy fun(self: GFile, flags: Flags<GFileCopyFlags>, cancellable?: GCancellable): string?, GError?
 ---@field copy fun(self: GFile, destination: GFile, flags: Flags<GFileCopyFlags>, cancellable?: GCancellable, progress_callback?: GFileProgressCallback): boolean, GError?
 ---@field copy_async fun(self: GFile, destination: GFile, flags: Flags<GFileCopyFlags>, io_priority: integer, cancellable?: GCancellable, progress_callback?: GFileProgressCallback, callback: GAsyncReadyCallback<GFile>)
----@field copy_finish fun(self: GFile, result: GAsyncResult): boolean, GError?
 ---@field copy_attributes fun(self: GFile, destination: GFile, flags: Flags<GFileCopyFlags>, cancellable?: GCancellable): boolean, GError?
+---@field copy_finish fun(self: GFile, result: GAsyncResult): boolean, GError?
 ---@field create fun(self: GFile, flags: Flags<GFileCreateFlags>, cancellable?: GCancellable): GFileOutputStream?, GError?
 ---@field create_async fun(self: GFile, flags: Flags<GFileCreateFlags>, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
 ---@field create_finish fun(self: GFile, result: GAsyncResult): GFileOutputStream?, GError?
----@field replace fun(self: GFile, etag?: string, make_backup: boolean, flags: Flags<GFileCreateFlags>, cancellable?: GCancellable): GFileOutputStream?, GError?
----@field replace_async fun(self: GFile, etag?: string, make_backup: boolean, flags: Flags<GFileCreateFlags>, io_priority?: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
----@field replace_finish fun(self: GFile, result: GAsyncResult): GFileOutputStream?, GError?
+---@field delete fun(self: GFile, cancellable?: GCancellable): boolean, GError?
+---@field delete_async fun(self: GFile, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
+---@field delete_finish fun(self: GFile, result: GAsyncResult): boolean, GError?
+---@field enumerate_children fun(self: GFile, attributes: string, flags: Flags<GFileQueryInfoFlags>, cancellable?: GCancellable): GFileEnumerator?, GError?
+---@field enumerate_children_async fun(self: GFile, attributes: string, flags: Flags<GFileQueryInfoFlags>, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
+---@field enumerate_children_finish fun(self: GFile, task: GAsyncResult): GFileEnumerator?, GError?
 ---@field equal fun(self: GFile, other: GFile): boolean
+---@field get_basename fun(self: GFile): string?
+---Note that name *must* not be an absolute path. (see GLib.path_is_absolute())
+---@field get_child fun(self: GFile, name: string): GFile
+---@field get_parent fun(self: GFile): GFile?
+---@field get_path fun(self: GFile): string?
 ---@field get_relative_path fun(self: GFile, other: GFile): string?
 ---@field get_uri fun(self: GFile): string
+---@field load_contents fun(self: GFile, cancellable?: GCancellable): contents: string|false, etag: string|GError
+---@field load_contents_async fun(self: GFile, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
+---@field load_contents_finish fun(self: GFile, task: GAsyncResult): contents: string|false, etag: string|GError
 ---@field query_exists fun(self: GFile, cancellable?: GCancellable): boolean
 ---Returns G_FILE_TYPE_UNKNOWN if the file does not exist.
 ---@field query_file_type fun(self: GFile, flags: Flags<GFileQueryInfoFlags>, cancellable?: GCancellable): GFileType
 ---@field query_info fun(self: GFile, attributes: string, flags: Flags<GFileQueryInfoFlags>, cancellable?: GCancellable): GFileInfo?, GError?
----@field get_parent fun(self: GFile): GFile?
----Note that name *must* not be an absolute path. (see GLib.path_is_absolute())
----@field get_child fun(self: GFile, name: string): GFile
----If the relative_path is an absolute path name, the resolution is done absolutely (without taking file path as base).
----@field resolve_relative_path fun(self: GFile, relative_path: string): GFile
----@field get_path fun(self: GFile): string?
----@field get_basename fun(self: GFile): string?
----@field load_contents_async fun(self: GFile, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
----@field load_contents_finish fun(self: GFile, task: GAsyncResult): contents: string|false, etag: string|GError
----@field load_contents fun(self: GFile, cancellable?: GCancellable): contents: string|false, etag: string|GError
 ---@field query_info_async fun(self: GFile, attributes: string, flags: Flags<GFileQueryInfoFlags>, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
 ---@field query_info_finish fun(self: GFile, task: GAsyncResult): GFileInfo?, GError?
----@field enumerate_children_async fun(self: GFile, attributes: string, flags: Flags<GFileQueryInfoFlags>, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
----@field enumerate_children_finish fun(self: GFile, task: GAsyncResult): GFileEnumerator?, GError?
----@field enumerate_children fun(self: GFile, attributes: string, flags: Flags<GFileQueryInfoFlags>, cancellable?: GCancellable): GFileEnumerator?, GError?
 ---@field read fun(self: GFile, cancellable?: GCancellable): GInputStream?, GError?
 ---@field read_async fun(self: GFile, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
 ---@field read_finish fun(self: GFile, task: GAsyncResult): GInputStream?, GError?
+---@field replace fun(self: GFile, etag?: string, make_backup: boolean, flags: Flags<GFileCreateFlags>, cancellable?: GCancellable): GFileOutputStream?, GError?
+---@field replace_async fun(self: GFile, etag?: string, make_backup: boolean, flags: Flags<GFileCreateFlags>, io_priority?: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
+---@field replace_contents fun(self: GFile, contents: string, etag?: string, make_backup: boolean, flags: Flags<GFileCreateFlags>, cancellable?: GCancellable): new_etag: string|false, GError?
+---WARNING: This function *does not* copy the contents of `contents` and so it must not be freed. Use replace_contents_bytes_async() instead.
+---@field replace_contents_async fun(self: GFile, contents: string, etag?: string, make_backup: boolean, flags: Flags<GFileCreateFlags>, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
 ---Same as g_file_replace_contents_async() but takes a GBytes input instead
 ---Finalize with g_file_replace_contents_finish() (if needed)
 ---@field replace_contents_bytes_async fun(self: GFile, contents: GBytes, etag?: string, make_backup: boolean, flags: Flags<GFileCreateFlags>, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
----WARNING: This function *does not* copy the contents of `contents` and so it must not be freed. Use replace_contents_bytes_async() instead.
----@field replace_contents_async fun(self: GFile, contents: string, etag?: string, make_backup: boolean, flags: Flags<GFileCreateFlags>, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
 ---@field replace_contents_finish fun(self: GFile, task: GAsyncResult): new_etag: string|false, GError?
----@field replace_contents fun(self: GFile, contents: string, etag?: string, make_backup: boolean, flags: Flags<GFileCreateFlags>, cancellable?: GCancellable): new_etag: string|false, GError?
----@field delete fun(self: GFile, cancellable?: GCancellable): boolean, GError?
----@field delete_async fun(self: GFile, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
----@field delete_finish fun(self: GFile, result: GAsyncResult): boolean, GError?
+---@field replace_finish fun(self: GFile, result: GAsyncResult): GFileOutputStream?, GError?
+---If the relative_path is an absolute path name, the resolution is done absolutely (without taking file path as base).
+---@field resolve_relative_path fun(self: GFile, relative_path: string): GFile
 
 ---@class GFileIOStream TODO:
 

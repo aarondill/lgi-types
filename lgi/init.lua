@@ -1,4 +1,5 @@
 ---@meta lgi
+---@diagnostic disable: duplicate-doc-field
 
 ---Note that none of the type definitions in this file are complete.
 ---If a field is missing, add it and report it.
@@ -20,20 +21,18 @@
 ---@alias LGI.Error.code string|integer
 
 ---@class GError :userdata
----@field message string
----@field domain string
 ---@field code string
----@diagnostic disable: duplicate-doc-field
+---@field domain string
 ---@field matches fun(self: GError, other: GError): boolean
 ---@field matches fun(self: GError, domain: LGI.Error.domain, code: LGI.Error.code): boolean
----@diagnostic enable: duplicate-doc-field
+---@field message string
 
 ---@class GErrorStatic
 ---@field new fun(domain: LGI.Error.domain, code: LGI.Error.code, message: string): GError
 
 ---@class lgi
----@field Gio Gio
 ---@field GLib GLib
+---@field Gio Gio
 ---Use direct access instead. It has better types.
 ---@field require fun(mod: string): unknown
 
