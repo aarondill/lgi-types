@@ -33,6 +33,7 @@
 ---@field FileType EnumDefinition<GFileType>
 ---@field IOErrorEnum EnumDefinition<string>
 ---@field IOStreamSpliceFlags FlagsDefinition<GIOStreamSpliceFlags>
+---@field MemoryInputStream GMemoryInputStreamStatic
 ---@field OutputStreamSpliceFlags FlagsDefinition<GOutputStreamSpliceFlags>
 ---@field Subprocess GSubprocessStatic
 ---@field SubprocessFlags FlagsDefinition<GSubprocessFlags>

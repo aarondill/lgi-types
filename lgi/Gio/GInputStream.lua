@@ -66,3 +66,12 @@
 ---@class GUnixInputStream: GInputStream,GFileDescriptorBased,GPollableInputStream
 ---@field get_close_fd fun(self: GUnixInputStream): boolean
 ---@field set_close_fd fun(self: GUnixInputStream, close_fd: boolean)
+
+---@class GMemoryInputStreamStatic
+---@field new fun(): GMemoryInputStream
+---@field new_from_bytes fun(bytes: GBytes): GMemoryInputStream
+---@field new_from_data fun(data: integer[], len: integer): GMemoryInputStream
+
+---@class GMemoryInputStream: GInputStream, GPollableInputStream, GSeekable
+---@field add_bytes fun(self: GMemoryInputStream, bytes: GBytes)
+---@field add_data fun(self: GMemoryInputStream, data: integer[], len: integer)
