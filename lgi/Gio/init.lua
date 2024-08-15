@@ -9,6 +9,7 @@
 ---@field bus_get_finish fun(res: GAsyncResult): GDBusConnection
 ---@field bus_get fun(bus_type: Enum<GBusType>, cancellable?: GCancellable, callback: GAsyncReadyCallback<GDBusConnection>)
 ---@field bus_get_sync fun(bus_type: Enum<GBusType>, cancellable?: GCancellable): GDBusConnection
+---@field BufferedInputStream GBufferedInputStreamStatic
 ---@field BusType EnumDefinition<GBusType>
 ---@field Cancellable GCancellableStatic
 ---@field DataInputStream GDataInputStreamStatic
