@@ -38,6 +38,7 @@
 ---@field Error GErrorStatic
 ---@field FormatSizeFlags FlagsDefinition<GFormatSizeFlags>
 ---@field MainContextFlags FlagsDefinition<MainContextFlags>
+---@field MainLoop GMainLoopStatic
 ---@field PRIORITY_DEFAULT 0
 ---@field PRIORITY_DEFAULT_IDLE 200
 ---@field PRIORITY_HIGH -100
