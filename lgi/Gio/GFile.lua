@@ -40,6 +40,9 @@
 ---@field create fun(self: GFile, flags: Flags<GFileCreateFlags>, cancellable?: GCancellable): GFileOutputStream?, GError?
 ---@field create_async fun(self: GFile, flags: Flags<GFileCreateFlags>, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
 ---@field create_finish fun(self: GFile, result: GAsyncResult): GFileOutputStream?, GError?
+---@field create_readwrite fun(self: GFile, flags: Flags<GFileCreateFlags>, cancellable?: GCancellable): GFileIOStream?, GError?
+---@field create_readwrite_async fun(self: GFile, flags: Flags<GFileCreateFlags>, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
+---@field create_readwrite_finish fun(self: GFile, result: GAsyncResult): GFileIOStream?, GError?
 ---@field delete fun(self: GFile, cancellable?: GCancellable): boolean, GError?
 ---@field delete_async fun(self: GFile, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
 ---@field delete_finish fun(self: GFile, result: GAsyncResult): boolean, GError?
@@ -78,6 +81,9 @@
 ---@field replace_finish fun(self: GFile, result: GAsyncResult): GFileOutputStream?, GError?
 ---If the relative_path is an absolute path name, the resolution is done absolutely (without taking file path as base).
 ---@field resolve_relative_path fun(self: GFile, relative_path: string): GFile
+---@field open_readwrite fun(self: GFile, cancellable?: GCancellable): GFileIOStream?, GError?
+---@field open_readwrite_async fun(self: GFile, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
+---@field open_readwrite_finish fun(self: GFile, result: GAsyncResult): GFileIOStream?, GError?
 
 ---@class GFileIOStream TODO:
 
