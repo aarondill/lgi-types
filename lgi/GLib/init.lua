@@ -131,3 +131,5 @@
 ---such that each prime is approximately 1.5-2 times the previous prime.
 ---@field spaced_primes_closest fun(num: integer): integer
 ---@field unsetenv fun(var: string)
+---@field Variant GVariantStatic
+---@field VarientType GVarientTypeStatic

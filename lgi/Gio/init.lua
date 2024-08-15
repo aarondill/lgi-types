@@ -30,8 +30,6 @@
 ---@field Subprocess GSubprocessStatic
 ---@field SubprocessLauncher GSubprocessLauncherStatic
 ---@field UnixInputStream GUnixInputStreamStatic
----@field Variant GVariantStatic
----@field VarientType GVarientTypeStatic
 
 local lgi = require("lgi") ---@type lgi
 return lgi.Gio
