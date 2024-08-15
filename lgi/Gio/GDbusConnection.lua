@@ -58,7 +58,7 @@
 ---@field close_finish fun(self: GDBusConnection, res: GAsyncResult): boolean, GError?
 ---@field signal_subscribe fun(self: GDBusConnection, sender?: string, interface_name?: string, member?: string, object_path?: string, arg0?: string, flags: Flags<GDBusSignalFlags>, callback: GDBusSignalCallback): id: integer
 ---@field signal_unsubscribe fun(self: GDBusConnection, id: integer)
----@field send_message_with_reply_sync fun(self: GDBusConnection, message: GDBusMessage, flags: Flags<GDBusSendMessageFlags>, timeout_msec: integer, cancellable?: GCancellable): GDBusMessage?, GError?
----@field send_message_with_reply fun(self: GDBusConnection, message: GDBusMessage, flags: Flags<GDBusSendMessageFlags>, timeout_msec: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GDBusConnection>)
----@field send_message_with_reply_finish fun(self: GDBusConnection, res: GAsyncResult): GDBusMessage?, GError?
----@field send_message fun(self: GDBusConnection, message: GDBusMessage, flags: Flags<GDBusSendMessageFlags>, cancellable?: GCancellable): boolean, GError?
+---@field send_message_with_reply_sync fun(self: GDBusConnection, message: GDBusMessage, flags: Flags<GDBusSendMessageFlags>, timeout_msec: integer, cancellable?: GCancellable): GDBusMessage?, out_serial: integer|GError
+---@field send_message_with_reply fun(self: GDBusConnection, message: GDBusMessage, flags: Flags<GDBusSendMessageFlags>, timeout_msec: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GDBusConnection>): out_serial: integer
+---@field send_message_with_reply_finish fun(self: GDBusConnection, res: GAsyncResult): GDBusMessage?, out_serial: integer|GError
+---@field send_message fun(self: GDBusConnection, message: GDBusMessage, flags: Flags<GDBusSendMessageFlags>, cancellable?: GCancellable): out_serial: integer|false, GError?
