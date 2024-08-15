@@ -66,9 +66,9 @@
 ---@field query_info fun(self: GFile, attributes: string, flags: Flags<GFileQueryInfoFlags>, cancellable?: GCancellable): GFileInfo?, GError?
 ---@field query_info_async fun(self: GFile, attributes: string, flags: Flags<GFileQueryInfoFlags>, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
 ---@field query_info_finish fun(self: GFile, task: GAsyncResult): GFileInfo?, GError?
----@field read fun(self: GFile, cancellable?: GCancellable): GInputStream?, GError?
+---@field read fun(self: GFile, cancellable?: GCancellable): GFileInputStream?, GError?
 ---@field read_async fun(self: GFile, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
----@field read_finish fun(self: GFile, task: GAsyncResult): GInputStream?, GError?
+---@field read_finish fun(self: GFile, task: GAsyncResult): GFileInputStream?, GError?
 ---@field replace fun(self: GFile, etag?: string, make_backup: boolean, flags: Flags<GFileCreateFlags>, cancellable?: GCancellable): GFileOutputStream?, GError?
 ---@field replace_async fun(self: GFile, etag?: string, make_backup: boolean, flags: Flags<GFileCreateFlags>, io_priority?: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
 ---@field replace_contents fun(self: GFile, contents: string, etag?: string, make_backup: boolean, flags: Flags<GFileCreateFlags>, cancellable?: GCancellable): new_etag: string|false, GError?
@@ -87,7 +87,5 @@
 ---@field monitor fun(self: GFile, flags: Flags<GFileMonitorFlags>, cancellable?: GCancellable): GFileMonitor?, GError?
 ---@field monitor_dir fun(self: GFile, flags: Flags<GFileMonitorFlags>, cancellable?: GCancellable): GFileMonitor?, GError?
 ---@field monitor_file fun(self: GFile, flags: Flags<GFileMonitorFlags>, cancellable?: GCancellable): GFileMonitor?, GError?
-
----@class GFileIOStream TODO:
 
 return require("util.lgi.Gio").File

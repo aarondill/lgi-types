@@ -67,6 +67,8 @@
 ---@field get_close_fd fun(self: GUnixInputStream): boolean
 ---@field set_close_fd fun(self: GUnixInputStream, close_fd: boolean)
 
+---@class GFileInputStream: GInputStream, GSeekable
+
 ---@class GMemoryInputStreamStatic
 ---@field new fun(): GMemoryInputStream
 ---@field new_from_bytes fun(bytes: GBytes): GMemoryInputStream
