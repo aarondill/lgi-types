@@ -37,6 +37,7 @@
 ---@field DIR_SEPARATOR_S string
 ---@field Error GErrorStatic
 ---@field FormatSizeFlags FlagsDefinition<GFormatSizeFlags>
+---@field MainContextFlags FlagsDefinition<MainContextFlags>
 ---@field PRIORITY_DEFAULT 0
 ---@field PRIORITY_DEFAULT_IDLE 200
 ---@field PRIORITY_HIGH -100
@@ -47,6 +48,8 @@
 ---@field SeekType EnumDefinition<GSeekType>
 ---@field Source GSourceStatic
 ---@field UserDirectory EnumDefinition<GUserDirectory | "N_DIRECTORIES">
+---@field Variant GVariantStatic
+---@field VarientType GVarientTypeStatic
 ---@field build_filenamev fun(args: string[]): string
 ---@field build_pathv fun(separator: string, args: string[]): string
 ---Symlinks are not followed. No IO is done.
@@ -131,5 +134,3 @@
 ---such that each prime is approximately 1.5-2 times the previous prime.
 ---@field spaced_primes_closest fun(num: integer): integer
 ---@field unsetenv fun(var: string)
----@field Variant GVariantStatic
----@field VarientType GVarientTypeStatic
