@@ -18,8 +18,9 @@
 ---@field close fun(self: GInputStream, cancellable?: GCancellable): boolean, GError?
 ---@field close_async fun(self: GInputStream, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GInputStream>)
 ---@field is_closed fun(self: GInputStream): boolean
+---@field read_bytes fun(self: GInputStream, count: integer, cancellable?: GCancellable): GBytes?, GError?
 ---@field read_bytes_async fun(self: GInputStream, count: integer, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GInputStream>)
----@field read_bytes_finish fun(self: GInputStream, task: GAsyncResult): GBytes, GError?
+---@field read_bytes_finish fun(self: GInputStream, task: GAsyncResult): GBytes?, GError?
 ---@field skip fun(self: GInputStream, count: integer, cancellable?: GCancellable): skpped: integer, GError?
 ---@field skip_async fun(self: GInputStream, count: integer, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GInputStream>)
 ---@field skip_finish fun(self: GInputStream, task: GAsyncResult): skpped: integer, GError?

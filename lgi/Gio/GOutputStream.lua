@@ -16,9 +16,9 @@
 ---@field splice fun(self: GOutputStream, source: GInputStream, flags: Flags<GOutputStreamSpliceFlags>, cancellable?: GCancellable): size: integer, GError?
 ---@field splice_async fun(self: GOutputStream, source: GInputStream, flags: Flags<GOutputStreamSpliceFlags>, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GOutputStream>)
 ---@field splice_finish fun(self: GOutputStream, task: userdata): size: integer?, GError?
----@field write fun(self: GOutputStream, buffer: string, count: integer, cancellable?: GCancellable): written: integer, GError?
+---@field write fun(self: GOutputStream, buffer: string, cancellable?: GCancellable): written: integer, GError?
 ---WARNING: This function *does not* copy the contents of `contents` and so it must not be freed. Use write_bytes_async() instead.
----@field write_async fun(self: GOutputStream, content: string, len: integer, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GOutputStream>)
+---@field write_async fun(self: GOutputStream, content: string, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GOutputStream>)
 ---@field write_bytes fun(self: GOutputStream, buffer: GBytes, cancellable?: GCancellable): written: integer, GError?
 ---Same as write_async() but takes a GBytes input instead
 ---@field write_bytes_async fun(self: GOutputStream, content: GBytes, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GOutputStream>)
