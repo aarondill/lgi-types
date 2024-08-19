@@ -24,7 +24,7 @@
 ---@alias GFileWatcherChangedHandler fun(self: GFileMonitor, file: GFile, other_file?: GFile, event_type: GFileMonitorEvent)
 
 ---@class GFileMonitor
----@field on_changed {connect: GFileWatcherChangedHandler}
+---@field on_changed {connect: fun(cb: GFileWatcherChangedHandler)}
 ---@field cancel fun(self: GFileMonitor): true
 ---@field is_cancelled fun(self: GFileMonitor): boolean
 ---@field set_rate_limit fun(self: GFileMonitor, limit_msecs: integer): true
