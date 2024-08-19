@@ -134,4 +134,5 @@
 ---larger than num. The built-in array of primes ranges from 11 to 13845163
 ---such that each prime is approximately 1.5-2 times the previous prime.
 ---@field spaced_primes_closest fun(num: integer): integer
+---@field timeout_add fun(interval: integer, function: GSourceFunc): id: integer
 ---@field unsetenv fun(var: string)
