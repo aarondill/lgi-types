@@ -134,5 +134,12 @@
 ---larger than num. The built-in array of primes ranges from 11 to 13845163
 ---such that each prime is approximately 1.5-2 times the previous prime.
 ---@field spaced_primes_closest fun(num: integer): integer
----@field timeout_add fun(interval: integer, function: GSourceFunc): id: integer
+---interval is in milliseconds. The function is called repeatedly until it
+---returns false, at which point the timeout is automatically destroyed and the
+---function will not be called again.
+---@field timeout_add fun(priority: integer, interval: integer, function: GSourceFunc): id: integer
+---Note that the first call of the timer may not be precise for timeouts of one
+---second. If you need finer precision and have such a timeout, you may want to
+---use g_timeout_add() instead.
+---@field timeout_add_seconds fun(priority: integer, interval: integer, function: GSourceFunc): id: integer
 ---@field unsetenv fun(var: string)
