@@ -51,6 +51,8 @@
 ---@field UserDirectory EnumDefinition<GUserDirectory | "N_DIRECTORIES">
 ---@field Variant GVariantStatic
 ---@field VarientType GVarientTypeStatic
+---@field base64_encode fun(data: string): string
+---@field base64_decode fun(text: string): string
 ---@field build_filenamev fun(args: string[]): string
 ---@field build_pathv fun(separator: string, args: string[]): string
 ---Symlinks are not followed. No IO is done.
