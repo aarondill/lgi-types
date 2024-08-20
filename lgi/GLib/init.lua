@@ -131,6 +131,9 @@
 ---@field reload_user_special_dirs_cache fun()
 ---@field rmdir fun(filename: string): 0|-1
 ---@field setenv fun(var: string, val: string, overwrite: boolean): boolean
+---@field shell_quote fun(unquoted_string: string): string
+---@field shell_unquote fun(quoted_string: string): string?, GError?
+---@field shell_parse_argv fun(command_line: string): string[]|false, GError?
 ---Gets the smallest prime number from a built-in array of primes which is
 ---larger than num. The built-in array of primes ranges from 11 to 13845163
 ---such that each prime is approximately 1.5-2 times the previous prime.
