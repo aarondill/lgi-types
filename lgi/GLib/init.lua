@@ -69,6 +69,7 @@
 ---@field format_size_full fun(size: integer, flags: Flags<GFormatSizeFlags>): string
 ---@field get_current_dir fun(): string
 ---@field get_home_dir fun(): string
+---@field get_tmp_dir fun(): string
 ---@field get_host_name fun(): string
 ---returns g_get_language_names_with_category(“LC_MESSAGES”).
 ---@field get_language_names fun(): string[]
