@@ -149,3 +149,4 @@
 ---use g_timeout_add() instead.
 ---@field timeout_add_seconds fun(priority: integer, interval: integer, function: GSourceFunc): id: integer
 ---@field unsetenv fun(var: string)
+---@field close fun(fd: integer): boolean, GError?
