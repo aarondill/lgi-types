@@ -12,18 +12,18 @@
 ---@class GOutputStream
 ---@field close fun(self: GOutputStream): boolean, GError?
 ---@field close_async fun(self: GOutputStream, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GOutputStream>)
----@field close_finish fun(self: GOutputStream, task: userdata): boolean?, GError?
+---@field close_finish fun(self: GOutputStream, task: GAsyncResult): boolean?, GError?
 ---@field splice fun(self: GOutputStream, source: GInputStream, flags: Flags<GOutputStreamSpliceFlags>, cancellable?: GCancellable): size: integer, GError?
 ---@field splice_async fun(self: GOutputStream, source: GInputStream, flags: Flags<GOutputStreamSpliceFlags>, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GOutputStream>)
----@field splice_finish fun(self: GOutputStream, task: userdata): size: integer?, GError?
+---@field splice_finish fun(self: GOutputStream, task: GAsyncResult): size: integer?, GError?
 ---@field write fun(self: GOutputStream, buffer: string, cancellable?: GCancellable): written: integer, GError?
 ---WARNING: This function *does not* copy the contents of `contents` and so it must not be freed. Use write_bytes_async() instead.
 ---@field write_async fun(self: GOutputStream, content: string, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GOutputStream>)
 ---@field write_bytes fun(self: GOutputStream, buffer: GBytes, cancellable?: GCancellable): written: integer, GError?
 ---Same as write_async() but takes a GBytes input instead
 ---@field write_bytes_async fun(self: GOutputStream, content: GBytes, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GOutputStream>)
----@field write_bytes_finish fun(self: GOutputStream, task: userdata): written: integer?, GError?
----@field write_finish fun(self: GOutputStream, task: userdata): written: integer?, GError?
+---@field write_bytes_finish fun(self: GOutputStream, task: GAsyncResult): written: integer?, GError?
+---@field write_finish fun(self: GOutputStream, task: GAsyncResult): written: integer?, GError?
 
 ---@class GFileOutputStream: GOutputStream, GSeekable
 
