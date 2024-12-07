@@ -1,0 +1,33 @@
+name: Generate README
+on:
+  push:
+  pull_request:
+    paths:
+      - "README.md" # This isn't needed, but it's a good sanity check
+      - "README.tmpl.md"
+  workflow_dispatch:
+jobs:
+  generate-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@master
+      - run: |
+          [ -f README.tmpl.md ] || cp README.md README.tmpl.md # Initialize README.tmpl.md
+          printf '%s\n' "<!-- This file is generated from README.tmpl.md -->" > README.md
+          cat README.tmpl.md >> README.md
+      - name: CLOC
+        uses: djdefi/cloc-action@6
+        with:
+          options: --md --report-file=cloc.md --hide-rate
+        # Note: initial newline is required because files don't end with one
+      - run: |
+          printf '\n%s\n' '### Lines of code' >> README.md
+          cat cloc.md >> README.md
+          rm cloc.md
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore: Generate README"
+          # Note: README.tmpl.md is needed in the first case
+          file_pattern: README.md README.tmpl.md
