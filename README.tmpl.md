@@ -1,4 +1,3 @@
-<!-- This file is generated from README.tmpl.md -->
 # LGI Types
 
 This is a collection of types for GLib and Gio through [LGI](https://github.com/lgi-devs/lgi).
@@ -20,17 +19,3 @@ None of the types are complete, but they are great for getting started with LGI.
   "workspace.library": ["/path/to/lgi-types"]
 }
 ```
-
-### Lines of code
-cloc|github.com/AlDanial/cloc v 1.96
---- | ---
-
-Language|files|blank|comment|code
-:-------|-------:|-------:|-------:|-------:
-YAML|3|0|2|61
-Markdown|1|6|0|15
-JSON|1|0|0|12
-TOML|1|1|0|9
-Lua|25|73|752|7
---------|--------|--------|--------|--------
-SUM:|31|80|754|104
