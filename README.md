@@ -22,15 +22,16 @@ None of the types are complete, but they are great for getting started with LGI.
 ```
 
 ### Lines of code
+<sup><sub>Generated at commit 43921452ca1dd50857a97a9313affbd0df9fd1db</sub></sup>
 cloc|github.com/AlDanial/cloc v 1.96
 --- | ---
 
 Language|files|blank|comment|code
 :-------|-------:|-------:|-------:|-------:
-YAML|3|0|2|61
-Markdown|1|6|0|15
+YAML|3|0|2|83
+Markdown|2|14|1|42
 JSON|1|0|0|12
 TOML|1|1|0|9
 Lua|25|73|752|7
 --------|--------|--------|--------|--------
-SUM:|31|80|754|104
+SUM:|32|88|755|153
