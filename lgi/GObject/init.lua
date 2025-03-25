@@ -3,4 +3,4 @@
 ---@field _type GObjectStatic
 
 ---@class GObjectStatic :userdata TODO:
----@field is_type_of fun(obj: any): boolean
+---@field is_type_of fun(self: GObjectStatic, obj: any): boolean
