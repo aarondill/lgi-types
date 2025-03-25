@@ -35,7 +35,7 @@
 ---@field Gio Gio
 ---@field cairo cairo
 ---@field Pango Pango
----@field GObject GObjectStatic
+---@field GObject GObjectModule
 ---@field Gtk Gtk
 ---@field Gdk Gdk
 ---@field GdkPixbuf GdkPixbuf
