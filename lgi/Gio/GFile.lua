@@ -22,6 +22,8 @@
 ---@alias GFileProgressCallback fun(current_num_bytes: integer, total_num_bytes: integer)
 
 ---@class GFileStatic :GObjectStatic
+---NOTE: GFile is implemented incorrectly, so G*File*s can't be checked with is_type_of
+---@field is_type_of fun(self: 'never works - broken implementation!', other: -1): false
 ---@field new_for_path fun(path: string): GFile
 ---@field new_for_uri fun(uri: string): GFile
 ---@field new_tmp fun(tmpl?: string): GFile?, GFileIOStream|GError
