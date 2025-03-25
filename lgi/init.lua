@@ -14,7 +14,8 @@
 
 ---An intentionally opaque class that must be passed to the _finish method. This should only ever be used *once*!
 ---@class GAsyncResult :GObject
----@alias GAsyncReadyCallback<T> fun(self: T, task: GAsyncResult)
+---Or nil, since you may pass nil if you don't care about the result
+---@alias GAsyncReadyCallback<T> fun(self: T, task: GAsyncResult)|nil
 
 ---These are performed through lgi
 ---@alias LGI.Error.domain table|string
