@@ -9,12 +9,12 @@
 ---@field finalize? false
 ---@field prepare? fun(source: GSource): ready: boolean, timeout: integer?
 
----@class GSourceStatic
+---@class GSourceStatic :GObjectStatic
 ---Note: the `new` method is impossible to use in Lua, as it requires the
 ---struct size to be known. Use the call operator instead.
 ---@operator call(GSourceFuncs): GSourceStatic
 ---@field remove fun(id: integer): boolean
 
----@class GSource
+---@class GSource :GObject
 ---@field attach fun(self: GSource, context?: GMainContext): id: integer
 ---@field destroy fun(self: GSource)

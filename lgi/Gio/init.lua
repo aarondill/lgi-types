@@ -2,7 +2,7 @@
 ---@diagnostic disable: duplicate-doc-field This is used for overloading. Note: It's not perfect because the return types will not be narrowed.
 ---Note that none of the type definitions in this file are complete. If a field is missing, add it and report it.
 
----@class GFileDescriptorBased
+---@class GFileDescriptorBased :GObject
 ---@field get_fd fun(self: GFileDescriptorBased): integer
 
 ---@class Gio

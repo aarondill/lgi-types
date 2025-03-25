@@ -1,9 +1,9 @@
 ---@diagnostic disable: duplicate-doc-field This is used for overloading. Note: It's not perfect because the return types will not be narrowed.
 ---@meta
 
----@class GFileInfoStatic: userdata
+---@class GFileInfoStatic: GObjectStatic
 
----@class GFileInfo: userdata
+---@class GFileInfo: GObject
 ---@field get_attribute_as_string fun(self: GFileInfo, attribute: string): string?
 ---@field get_attribute_object fun(self: GFileInfo, attribute: string): table?
 ---@field get_attribute_string fun(self: GFileInfo, attribute: string): string?
@@ -21,7 +21,7 @@
 ---@field has_attribute fun(self: GFileInfo, attribute: string): boolean
 ---@field list_attributes fun(self: GFileInfo, namespace?: string): string[]?
 
----@class GFileEnumerator: userdata
+---@class GFileEnumerator: GObject
 ---@field close_async fun(self: GFileEnumerator, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GFileEnumerator>)
 -- To use this, G_FILE_ATTRIBUTE_STANDARD_NAME must have been listed in the attributes list used when creating the GFileEnumerator.
 ---@field get_child fun(self: GFileEnumerator, info: GFileInfo): GFile

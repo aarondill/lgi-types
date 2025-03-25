@@ -1,6 +1,6 @@
 ---@alias GSeekType "SET"|"CUR"|"END"
 
----@class GSeekable
+---@class GSeekable :GObject
 ---@field can_seek fun(self: GSeekable): boolean
 ---@field can_truncate fun(self: GSeekable): boolean
 ---@field seek fun(self: GSeekable, offset: integer, type: Enum<GSeekType>): suc: boolean, GError?
@@ -14,7 +14,8 @@
 ---TODO: types
 ---@field read_nonblocking fun(self: GPollableInputStream, buffer: string, count: integer): size: integer, GError?
 
----@class GInputStream GInputStream is a base class for implementing streaming input.
+---@class GInputStreamStatic :GObjectStatic
+---@class GInputStream :GObject GInputStream is a base class for implementing streaming input.
 ---@field close fun(self: GInputStream, cancellable?: GCancellable): boolean, GError?
 ---@field close_async fun(self: GInputStream, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GInputStream>)
 ---@field is_closed fun(self: GInputStream): boolean
@@ -25,12 +26,13 @@
 ---@field skip_async fun(self: GInputStream, count: integer, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GInputStream>)
 ---@field skip_finish fun(self: GInputStream, task: GAsyncResult): skpped: integer, GError?
 
----@class GFilterInputStream: GInputStream Base class for input stream implementations that perform some kind of filtering operation
+---@class GFilterInputStreamStatic :GInputStreamStatic
+---@class GFilterInputStream :GInputStream Base class for input stream implementations that perform some kind of filtering operation
 ---@field get_base_stream fun(self: GFilterInputStream): GInputStream
 ---@field get_close_base_stream fun(self: GFilterInputStream): boolean
 ---@field set_close_base_stream fun(self: GFilterInputStream, close_base: boolean)
 
----@class GBufferedInputStreamStatic
+---@class GBufferedInputStreamStatic :GFilterInputStreamStatic
 ---@field new fun(base_stream: GInputStream): GBufferedInputStream
 ---@field new_sized fun(base_stream: GInputStream, size: integer): GBufferedInputStream
 
@@ -53,7 +55,7 @@
 ---current contents.
 ---@field set_buffer_size fun(self: GBufferedInputStream, size: integer)
 
----@class GDataInputStreamStatic
+---@class GDataInputStreamStatic :GBufferedInputStreamStatic
 ---@field new fun(stream: GInputStream): GDataInputStream
 
 ---@class GDataInputStream: GBufferedInputStream, GSeekable
@@ -61,7 +63,7 @@
 ---@field read_line_async fun(self: GDataInputStream, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GDataInputStream>)
 ---@field read_line_finish fun(self: GInputStream, task: GAsyncResult): line: string?, len: integer|GError?
 
----@class GUnixInputStreamStatic
+---@class GUnixInputStreamStatic :GInputStreamStatic
 ---@field new fun(fd: integer, close_fd?: boolean): GUnixInputStream
 
 ---@class GUnixInputStream: GInputStream,GFileDescriptorBased,GPollableInputStream
@@ -70,7 +72,7 @@
 
 ---@class GFileInputStream: GInputStream, GSeekable
 
----@class GMemoryInputStreamStatic
+---@class GMemoryInputStreamStatic :GInputStreamStatic
 ---@field new fun(): GMemoryInputStream
 ---@field new_from_bytes fun(bytes: GBytes): GMemoryInputStream
 ---@field new_from_data fun(data: integer[]): GMemoryInputStream

@@ -1,7 +1,7 @@
----@class GCancellableStatic
+---@class GCancellableStatic :GObjectStatic
 ---@field new fun(): GCancellable
 
----@class GCancellable
+---@class GCancellable :GObject
 ---@field cancel fun(self: GCancellable)
 ---callback is called at most once, either directly at the time of the connect if cancellable is already cancelled, or when cancellable is cancelled in some thread.
 ---@field connect fun(self: GCancellable, callback: fun()): handler_id: integer|0

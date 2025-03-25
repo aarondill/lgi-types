@@ -21,14 +21,14 @@
 
 ---@alias GFileProgressCallback fun(current_num_bytes: integer, total_num_bytes: integer)
 
----@class GFileStatic
+---@class GFileStatic :GObjectStatic
 ---@field new_for_path fun(path: string): GFile
 ---@field new_for_uri fun(uri: string): GFile
 ---@field new_tmp fun(tmpl?: string): GFile?, GFileIOStream|GError
 ---@field new_tmp_async fun (tmpl?:string, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<nil>)
 ---@field new_tmp_finish fun(task: GAsyncResult): GFile?, GFileIOStream|GError
 
----@class GFile: userdata
+---@class GFile: GObject
 ---@field append_to fun(self: GFile, flags: Flags<GFileCreateFlags>, cancellable?: GCancellable): GFileOutputStream?, GError?
 ---@field append_to_async fun(self: GFile, flags: Flags<GFileCreateFlags>, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
 ---@field append_to_finish fun(self: GFile, result: GAsyncResult): GFileOutputStream?, GError?

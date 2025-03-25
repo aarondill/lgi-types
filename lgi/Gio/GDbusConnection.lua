@@ -30,18 +30,18 @@
 
 ---@alias GDBusSignalCallback fun(self: GDBusConnection, sender?: string, object_path: string, interface_name: string, signal_name: string, parameters: GVariant)
 
----@class GCredentialsStatic
+---@class GCredentialsStatic :GObjectStatic
 ---@field new fun(): GCredentials
----@class GCredentials -- TODO:
+---@class GCredentials :GObject -- TODO:
 
----@class GDBusAuthObserverStatic
+---@class GDBusAuthObserverStatic :GObjectStatic
 ---@field new fun(): GDBusAuthObserver
 
----@class GDBusAuthObserver
+---@class GDBusAuthObserver :GObject
 ---@field allow_mechanism fun(self: GDBusAuthObserver, mechanism: string)
 ---@field authorize_authenticated_peer fun(self: GDBusAuthObserver, stream: GIOStream, credentials?: GCredentials)
 
----@class GDBusConnectionStatic
+---@class GDBusConnectionStatic :GObjectStatic
 ---@field new fun(stream: GIOStream, guid?: string, flags: Flags<GDBusConnectionFlags>, observer?: GDBusAuthObserver, cancellable?: GCancellable, callback: GAsyncReadyCallback<GDBusConnectionStatic>)
 ---@field new_finish fun(res: GAsyncResult): GDBusConnection?, GError?
 ---@field new_for_address fun(address: string, flags: Flags<GDBusConnectionFlags>, observer?: GDBusAuthObserver, cancellable?: GCancellable, callback: GAsyncReadyCallback<GDBusConnectionStatic>)
@@ -49,7 +49,7 @@
 ---@field new_for_address_sync fun(address: string, flags: Flags<GDBusConnectionFlags>, observer?: GDBusAuthObserver, cancellable?: GCancellable): GDBusConnection?, GError?
 ---@field new_sync fun(stream: GIOStream, guid?: string, flags: Flags<GDBusConnectionFlags>, observer?: GDBusAuthObserver, cancellable?: GCancellable): GDBusConnection?, GError?
 
----@class GDBusConnection
+---@class GDBusConnection :GObject
 ---@field call fun(self: GDBusConnection, bus_name?: string, object_path: string, interface_name: string, method_name: string, parameters?: GVariant, reply_type?: GVarientType, flags: Flags<GDBusCallFlags>, timeout_msec: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GDBusConnection>)
 ---@field call_finish fun(self: GDBusConnection, res: GAsyncResult): GVariant?, GError?
 ---@field call_sync fun(self: GDBusConnection, bus_name?: string, object_path: string, interface_name: string, method_name: string, parameters?: GVariant, reply_type?: GVarientType, flags: Flags<GDBusCallFlags>, timeout_msec: integer, cancellable?: GCancellable): GVariant?, GError?

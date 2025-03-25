@@ -9,7 +9,9 @@
 ---@field is_writable fun(self: GPollableOutputStream): boolean
 ---@field write_nonblocking fun(self: GPollableOutputStream, buffer: string, count: integer, cancellable?: GCancellable): size: integer, GError?
 
----@class GOutputStream
+---@class GOutputStreamStatic :GObjectStatic
+
+---@class GOutputStream :GObject
 ---@field close fun(self: GOutputStream): boolean, GError?
 ---@field close_async fun(self: GOutputStream, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GOutputStream>)
 ---@field close_finish fun(self: GOutputStream, task: GAsyncResult): boolean?, GError?
@@ -27,7 +29,7 @@
 
 ---@class GFileOutputStream: GOutputStream, GSeekable
 
----@class GUnixOutputStreamStatic
+---@class GUnixOutputStreamStatic :GOutputStreamStatic
 ---@field new fun(fd: integer, close_fd: boolean): GFileOutputStream
 
 ---@class GUnixOutputStream: GOutputStream, GFileDescriptorBased, GPollableOutputStream

@@ -1,7 +1,7 @@
----@class GSubprocessLauncherStatic
+---@class GSubprocessLauncherStatic :GObjectStatic
 ---@field new fun(flags: Flags<GSubprocessFlags>): GSubprocessLauncher
 
----@class GSubprocessLauncher
+---@class GSubprocessLauncher :GObject
 ---@field getenv fun(self: GSubprocessLauncher, variable: string): string?
 ---@field set_cwd fun(self: GSubprocessLauncher, cwd: string)
 ---Pass an empty array to set an empty environment. Pass NULL to inherit the

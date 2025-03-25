@@ -5,7 +5,7 @@
 ---| "STREAM2" Close the destination stream.
 ---| "WAIT_FOR_BOTH" Wait for both splice operations to finish before calling the callback.
 
----@class GIOStream An abstract that represents an object that has both read and write streams
+---@class GIOStream :GObjectStatic An abstract that represents an object that has both read and write streams
 ---@field clear_pending fun(self: GIOStream)
 ---@field close fun(self: GIOStream, cancellable?: GCancellable): boolean, GError?
 ---@field close_async fun(self: GIOStream, io_priority: integer, cancellable?: GCancellable, callback?: GAsyncReadyCallback<GIOStream>)

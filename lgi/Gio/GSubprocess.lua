@@ -17,10 +17,10 @@
 ---|"STDOUT_PIPE" Create a pipe for the stdout of the spawned process.
 ---|"STDOUT_SILENCE" Silence the stdout of the spawned process. (ie: redirect to /dev/null)
 
----@class GSubprocessStatic
+---@class GSubprocessStatic :GObjectStatic
 ---@field new fun(argv: string[], flags: Flags<GSubprocessFlags>): GSubprocess?, GError?
 
----@class GSubprocess
+---@class GSubprocess :GObject
 ---@field communicate fun(self: GSubprocess, stdin?: GBytes, cancellable?: GCancellable): false, GError
 ---If stdin is given, the subprocess must have been created with "STDIN_PIPE".
 ---@field communicate fun(self: GSubprocess, stdin?: GBytes, cancellable?: GCancellable): stdout: GBytes?, stderr: GBytes?

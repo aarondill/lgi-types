@@ -1,8 +1,8 @@
----@class GBytesStatic
+---@class GBytesStatic :GObjectStatic
 ---@operator call(string): GBytes
 ---@field new fun(content: string): GBytes
 
----@class GBytes
+---@class GBytes :GObject
 ---@field compare fun(self: GBytes, other: GBytes): integer
 ---This is added by lgi -- it also allows using #bytes to get the size
 ---@field data string? Note: if length == 0, then nil is returned
