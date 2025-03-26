@@ -95,6 +95,14 @@
 ---@field open_readwrite fun(self: GFile, cancellable?: GCancellable): GFileIOStream?, GError?
 ---@field open_readwrite_async fun(self: GFile, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
 ---@field open_readwrite_finish fun(self: GFile, result: GAsyncResult): GFileIOStream?, GError?
+---@field make_directory fun(self: GFile, cancellable?: GCancellable): boolean, GError?
+---@field make_directory_async fun(self: GFile, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
+---@field make_directory_finish fun(self: GFile, result: GAsyncResult): boolean, GError?
+---If the directory itself already exists, this function will fail setting error to G_IO_ERROR_EXISTS,
+---@field make_directory_with_parents fun(self: GFile, cancellable?: GCancellable): boolean, GError?
+---@field make_symbolic_link fun(self: GFile, symlink_value: string, cancellable?: GCancellable): boolean, GError?
+---@field make_symbolic_link_async fun(self: GFile, symlink_value: string, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<GFile>)
+---@field make_symbolic_link_finish fun(self: GFile, result: GAsyncResult): boolean, GError?
 ---@field monitor fun(self: GFile, flags: Flags<GFileMonitorFlags>, cancellable?: GCancellable): GFileMonitor?, GError?
 ---@field monitor_dir fun(self: GFile, flags: Flags<GFileMonitorFlags>, cancellable?: GCancellable): GFileMonitor?, GError?
 ---@field monitor_file fun(self: GFile, flags: Flags<GFileMonitorFlags>, cancellable?: GCancellable): GFileMonitor?, GError?
