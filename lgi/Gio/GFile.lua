@@ -24,11 +24,20 @@
 ---@class GFileStatic :GObjectStatic
 ---NOTE: GFile is implemented incorrectly, so G*File*s can't be checked with is_type_of
 ---@field is_type_of fun(self: 'never works - broken implementation!', other: -1): false
+---Using this function is equivalent to calling g_build_filenamev(), followed by g_file_new_for_path() on the result.
+---@field new_build_filenamev fun(args: string[]): GFile
+---Creates a GFile with the given argument from the command line. The value of
+---arg can be either a URI, an absolute path or a relative path resolved relative to the current working directory.
+---@field new_for_commandline_arg fun(arg: string): GFile
+---@field new_for_commandline_arg_and_cwd fun(arg: string, cwd: string): GFile
 ---@field new_for_path fun(path: string): GFile
 ---@field new_for_uri fun(uri: string): GFile
 ---@field new_tmp fun(tmpl?: string): GFile?, GFileIOStream|GError
 ---@field new_tmp_async fun (tmpl?:string, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<nil>)
 ---@field new_tmp_finish fun(task: GAsyncResult): GFile?, GFileIOStream|GError
+---NOTE: There is not sync version of this constructor! Use Gio.File.new_for_path(GLib.Dir.make_tmp(tmpl)) instead
+---@field new_tmp_dir_async fun(tmpl?: string, io_priority: integer, cancellable?: GCancellable, callback: GAsyncReadyCallback<nil>)
+---@field new_tmp_dir_finish fun(task: GAsyncResult): GFile?, GError?
 
 ---@class GFile: GObject
 ---@field append_to fun(self: GFile, flags: Flags<GFileCreateFlags>, cancellable?: GCancellable): GFileOutputStream?, GError?

@@ -35,6 +35,7 @@
 ---@field Bytes GBytesStatic
 ---The directory separator as a string. This is “/” on UNIX machines and “\" under Windows.
 ---@field DIR_SEPARATOR_S string
+---@field Dir GDirStatic
 ---@field Error GErrorStatic
 ---@field FormatSizeFlags FlagsDefinition<GFormatSizeFlags>
 ---@field MainContextFlags FlagsDefinition<MainContextFlags>

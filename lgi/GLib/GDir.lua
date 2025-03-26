@@ -1,0 +1,22 @@
+---@meta
+
+---@class GDirStatic :GObjectStatic
+---Opens a directory for reading. The names of the files in the directory can
+---then be retrieved using g_dir_read_name(). Note that the ordering is not
+---defined.
+---@field open fun(path: string, flags: 0): GDir?, GError?
+---Creates a subdirectory in the preferred directory for temporary files.
+---`tmpl` should be a string containing a sequence of six ‘X’ characters.
+---NOTE: there is not async version of this function! Use Gio.File.new_tmp_dir_async instead
+---@field make_tmp fun(tmpl: string): string?, GError?
+
+---@class GDir :GObject
+---It is an error to call any of the GDir methods after calling close().
+---@field close fun(self: GDir): boolean, GError?
+---Retrieves the name of another entry in the directory, or NULL. The order of
+---entries returned from this function is not defined, and may vary by file
+---system or other operating-system dependent factors.
+---NULL may also be returned in case of errors. The error is stored in errno (UNACCESSIBLE!).
+---@field read_name fun(self: GDir): string?
+---Reset the iterator to the beginning of the directory.
+---@field rewind fun(self: GDir)
