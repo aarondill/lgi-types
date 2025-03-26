@@ -8,7 +8,7 @@
 ---Creates a subdirectory in the preferred directory for temporary files.
 ---`tmpl` should be a string containing a sequence of six ‘X’ characters.
 ---NOTE: there is not async version of this function! Use Gio.File.new_tmp_dir_async instead
----@field make_tmp fun(tmpl: string): string?, GError?
+---@field make_tmp fun(tmpl?: string): string?, GError?
 
 ---@class GDir :GObject
 ---It is an error to call any of the GDir methods after calling close().
