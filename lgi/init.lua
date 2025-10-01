@@ -34,6 +34,7 @@
 ---@class lgi
 ---@field GLib GLib
 ---@field Gio Gio
+---@field GioUnix GioUnix
 ---@field cairo cairo
 ---@field Pango Pango
 ---@field GObject GObjectModule
