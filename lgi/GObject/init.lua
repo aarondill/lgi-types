@@ -2,9 +2,6 @@
 ---@class GObjectModule
 ---@field Object GObjectStatic
 
----@class GObject :userdata TODO:
-----For example, this can be used `a._type:is_type_of(b)` to to check that `b` is of type `a`.
----@field _type GObjectStatic
+---@class GObject :LgiClass TODO:
 
----@class GObjectStatic :userdata TODO:
----@field is_type_of fun(self: GObjectStatic, obj: any): boolean
+---@class GObjectStatic :LgiClassStatic TODO:

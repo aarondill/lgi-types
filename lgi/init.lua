@@ -31,6 +31,14 @@
 ---@class GErrorStatic :GObjectStatic
 ---@field new fun(domain: LGI.Error.domain, code: LGI.Error.code, message: string): GError
 
+---@class LgiClass
+----For example, this can be used `a._type:is_type_of(b)` to to check that `b` is of type `a`.
+---@field _type LgiClassStatic
+---@field _native userdata A native pointer to the object
+
+---@class LgiClassStatic
+---@field is_type_of fun(self: LgiClassStatic, obj: any): boolean
+
 ---@class lgi
 ---@field GLib GLib
 ---@field Gio Gio
@@ -40,7 +48,7 @@
 ---@field GObject GObjectModule
 ---@field Gtk Gtk
 ---@field Gdk Gdk
----@field GdkPixbuf GdkPixbuf
+---@field GdkPixbuf GdkPixbufModule
 ---Use direct access instead. It has better types.
 ---@field require fun(mod: string): unknown
 
