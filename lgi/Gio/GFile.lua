@@ -45,7 +45,7 @@
 ---@field append_to_finish fun(self: GFile, result: GAsyncResult): GFileOutputStream?, GError?
 ---@field build_attribute_list_for_copy fun(self: GFile, flags: Flags<GFileCopyFlags>, cancellable?: GCancellable): string?, GError?
 ---@field copy fun(self: GFile, destination: GFile, flags: Flags<GFileCopyFlags>, cancellable?: GCancellable, progress_callback?: GFileProgressCallback): boolean, GError?
----@field copy_async fun(self: GFile, destination: GFile, flags: Flags<GFileCopyFlags>, io_priority: integer, cancellable?: GCancellable, progress_callback?: GFileProgressCallback, callback: GAsyncReadyCallback<GFile>)
+---@field copy_async fun(self: GFile, destination: GFile, flags: Flags<GFileCopyFlags>, io_priority: integer, cancellable?: GCancellable, progress_callback?: GFileProgressCallback, callback: GClosure<GAsyncReadyCallback<GFile>>)
 ---@field copy_attributes fun(self: GFile, destination: GFile, flags: Flags<GFileCopyFlags>, cancellable?: GCancellable): boolean, GError?
 ---@field copy_finish fun(self: GFile, result: GAsyncResult): boolean, GError?
 ---@field create fun(self: GFile, flags: Flags<GFileCreateFlags>, cancellable?: GCancellable): GFileOutputStream?, GError?
